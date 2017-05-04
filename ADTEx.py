@@ -334,8 +334,6 @@ def doCBS(centro, tmpdir, infile, outfile, sampleId):
 
 def main():
 
-    subprocess.call("date")
-    
     options = Options()
     control = options.control
     tumor = options.tumor
@@ -426,7 +424,6 @@ def main():
     # Delete temporary directory	
         if not options.keeptemp:
             shutil.rmtree(tmpdir)
-    subprocess.call("date",shell=True)
 	
 if __name__ == "__main__":
     main()
