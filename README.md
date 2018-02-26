@@ -28,13 +28,13 @@ In this implementation the python wrapper has been rewritten, and a post process
 ## Getting the docker container
 
 The latest ADTEX docker image can be downloaded directly from quay.io using
-`docker pull quay.io/jeltje/adtex`
+`docker pull quay.io/repository/ucsc_cgl/adtex`
 
 Alternatively, you can build from the github repo:
 ```
-git clone https://github.com/jeltje/adtex.git
+git clone https://github.com/BD2KGenomics/dockstore_tool_adtex
 cd adtex
-docker build -t jeltje/adtex .
+docker build -t ucsc_cgl/adtex .
 ```
 
 ## Running the docker container
@@ -44,13 +44,13 @@ For details on running docker containers in general, see the excellent tutorial 
 To see a usage statement, run
 
 ``
-docker run jeltje/adtex
+docker run ucsc_cgl/adtex
 ``
 
 ### Example input:
 
 ``
-docker run --log-driver=none -v /path/to/input/files:/data jeltje/adtex --normal normal.bam --tumor tumor.bam --sampleid MyTumorSample --out myOutputDir --targetbed targets.bed --centromeres centromeres.bed
+docker run --log-driver=none -v /path/to/input/files:/data ucsc_cgl/adtex --normal normal.bam --tumor tumor.bam --sampleid MyTumorSample --out myOutputDir --targetbed targets.bed --centromeres centromeres.bed
 ``
 
 where
@@ -110,7 +110,7 @@ To create BAF from VCF, run `vcfToBaf.py` from the `/src` directory. *Note: This
 To run ADTEx with BAF input:
 
 ``
-docker run --log-driver=none -v /path/to/input/files:/data jeltje/adtex --normal normal.bam --tumor tumor.bam --sampleid MyTumorSample --out myOutputDir --targetbed targets.bed --centromeres centromeres.bed --estimatePloidy --baf MySample.baf
+docker run --log-driver=none -v /path/to/input/files:/data ucsc_cgl/adtex --normal normal.bam --tumor tumor.bam --sampleid MyTumorSample --out myOutputDir --targetbed targets.bed --centromeres centromeres.bed --estimatePloidy --baf MySample.baf
 ``
 
 ### Zygosity output
